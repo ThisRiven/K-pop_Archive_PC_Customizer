@@ -1,7 +1,7 @@
 .nunito-bold {
   font-family: "Nunito", serif;
   font-optical-sizing: auto;
-  font-weight: 700;
+  font-weight: 900;
   font-style: normal;
 }
 
@@ -37,6 +37,7 @@ a {
   /* direction: rtl; */
   margin: 1vw 10vw;
   color: white;
+  font-size: 2vw;
 }
 
 .headerphotocard {
