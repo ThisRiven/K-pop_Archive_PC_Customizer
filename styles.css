@@ -34,12 +34,18 @@ a {
 
 .header {
   display: flex;
-  /* direction: rtl; */
-  margin: 1vw 10vw;
+
+  margin: 0 0 0 7vw;
   color: white;
   font-size: 2vw;
 }
 
 .headerphotocard {
   width: 30vw;
+}
+
+.headertext {
+  align-content: center;
+  margin: 0 7vw 0 20vw;
+  justify-self: right;
 }
