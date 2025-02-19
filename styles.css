@@ -1,3 +1,6 @@
+:root {
+}
+
 .nunito-bold {
   font-family: "Nunito", serif;
   font-optical-sizing: auto;
@@ -42,4 +45,18 @@ a {
 
 .headerphotocard {
   width: 30vw;
+}
+
+/* The Archive CSS */
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.gallery img {
+  width: 30vw;
+  height: 30vw;
+  object-fit: cover;
 }
