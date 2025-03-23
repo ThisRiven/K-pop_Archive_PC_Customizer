@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  border-color: white;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.photocard {
+  width: 30vw;
+  margin: auto;
+}
+
+.customiser {
+  border-color: red;
+  border-width: 2px;
+  border-style: solid;
+  display: flexbox;
+  justify-content: space-evenly;
+}
+.customiser img {
+  width: 9vw;
+  height: 9vw;
+  object-fit: contain;
+  border: 1px solid white;
+}
