@@ -18,14 +18,36 @@
         src="images\Gallery\pc67.jpg"
         alt="Hanni Photocard"
         class="photocard"
+        id="photocard"
       />
+      <img class="layer" id="layer1" src="" />
       <div class="customiser">
         <div class="customiser_row_1 row">
-          <img src="assets\Borders\border (1).svg" alt="" />
-          <img src="assets\Borders\border (2).svg" alt="" />
-          <img src="assets\Borders\border (3).svg" alt="" />
-          <img src="assets\Borders\border (4).svg" alt="" />
-          <img src="assets\Borders\border (5).svg" alt="" />
+          <img
+            src="assets\Borders\border (1).svg"
+            alt=""
+            onclick="selectLayer1(this)"
+          />
+          <img
+            src="assets\Borders\border (2).svg"
+            alt=""
+            onclick="selectLayer1(this)"
+          />
+          <img
+            src="assets\Borders\border (3).svg"
+            alt=""
+            onclick="selectLayer1(this)"
+          />
+          <img
+            src="assets\Borders\border (4).svg"
+            alt=""
+            onclick="selectLayer1(this)"
+          />
+          <img
+            src="assets\Borders\border (5).svg"
+            alt=""
+            onclick="selectLayer1(this)"
+          />
         </div>
         <div class="customiser_row_2 row">
           <img src="assets\Borders\border (1).svg" alt="" />
@@ -60,5 +82,6 @@
     <div class="bottom">
       <button>Print</button>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

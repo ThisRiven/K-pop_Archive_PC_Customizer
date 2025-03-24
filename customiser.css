@@ -25,6 +25,14 @@
   margin: auto;
 }
 
+.layer {
+  height: 80vh;
+  width: 400px;
+  position: absolute;
+  left: 10vw;
+  opacity: 0;
+}
+
 .customiser {
   width: 35vw;
   display: flex;
