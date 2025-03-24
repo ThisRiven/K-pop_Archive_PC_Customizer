@@ -14,22 +14,26 @@
   display: flex;
   /* flex-wrap: wrap; */
   justify-content: space-evenly;
-  /* border-color: white; */
-  /* border-width: 2px;
-  border-style: solid; */
+  border: 1px solid purple;
 }
 
 .photocard {
   width: auto;
-  height: 80vh;
-  margin: auto;
+  height: 60vh;
+  /* margin: auto; */
+  /* padding: 3vw; */
+  border: 5px solid red;
+  translate: -50% -50%;
+  position: relative;
+  left: 15vw;
+  bottom: -3vh;
 }
 
 .layer {
-  height: 80vh;
-  width: 400px;
+  height: 70vh;
+  width: auto;
   position: absolute;
-  left: 10vw;
+  left: 9.7vw;
   opacity: 0;
 }
 
