@@ -23,7 +23,7 @@ nav {
 }
 
 body {
-  background-color: hsl(231, 62%, 20%);
+  background-color: hsl(242, 68%, 20%);
 }
 
 .navp {
@@ -42,7 +42,7 @@ a {
   color: white;
 }
 .header h1 {
-  font-size: 4rem;
+  font-size: 5vh;
   margin: 0;
 }
 

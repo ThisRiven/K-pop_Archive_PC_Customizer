@@ -1,0 +1,65 @@
+.header {
+  display: flex;
+  gap: 10vw;
+  margin: 1vw 10vw;
+  /* color: white; */
+}
+
+.header p {
+  align-self: flex-end;
+  font-size: 1.5vh;
+}
+
+.container {
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: space-evenly;
+  /* border-color: white; */
+  /* border-width: 2px;
+  border-style: solid; */
+}
+
+.photocard {
+  width: auto;
+  height: 80vh;
+  margin: auto;
+}
+
+.customiser {
+  width: 35vw;
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 8vw;
+  gap: 10px;
+  /* border-color: red; */
+  /* border-width: 2px;
+  border-style: solid; */
+}
+.customiser img {
+  height: 6.5vw;
+  object-fit: contain;
+  border: 0.2vw solid rgba(167, 26, 2, 0.5);
+  border-radius: 1vw;
+  background-color: rgba(0, 0, 0, 0.354);
+  padding: 0.5vw;
+}
+
+.row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: space-evenly;
+}
+
+button {
+  width: 10vw;
+  height: 5vh;
+}
+
+.bottom {
+  /* border: 2px solid grey; */
+  display: flex;
+  justify-content: center;
+  margin-top: 2vh;
+}
