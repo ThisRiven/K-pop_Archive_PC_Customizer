@@ -65,10 +65,15 @@ a {
   flex-wrap: wrap;
   margin: auto;
   margin-top: 1vh;
+  justify-content: center;
+  gap: 16px;
 }
 
 .gallery img {
-  width: 30vw;
-  height: 30vw;
+  width: 100%;
+  max-width: 14vw;
+  min-height: 20vw;
+  height: 20vw;
   object-fit: cover;
+  border-radius: 1vw;
 }
