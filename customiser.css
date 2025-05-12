@@ -75,3 +75,43 @@ button {
   justify-content: center;
   margin-top: 2vh;
 }
+
+@media print {
+  nav {
+    display: none;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .preview {
+    position: relative;
+  }
+  .photocard {
+    display: flex;
+    width: 75vw;
+    height: 75vh;
+    justify-content: center;
+    align-items: center;
+  }
+  #videoElement {
+    display: flex;
+    width: 75vw;
+    height: 75vh;
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+  }
+  .layer {
+    width: 80vw;
+    height: 80vh;
+    opacity: 1;
+  }
+  .customiser {
+    display: none;
+  }
+  button {
+    display: none;
+  }
+}
