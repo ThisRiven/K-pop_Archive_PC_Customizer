@@ -8,3 +8,20 @@ function selectLayer1(e){
     img.style.opacity = 1;// set the opacity to 1
     src.appendChild(img);// append the image to the src div
 }
+
+let params = new URLSearchParams(document.location.search);
+let name = params.get("picture"); // is the string "Jonathan"
+
+document.getElementById('photocard').src = 'images/Gallery/' + name + '.jpg';
+
+var video = document.querySelector("#videoElement");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
