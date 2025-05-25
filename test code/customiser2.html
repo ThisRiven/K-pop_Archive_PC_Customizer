@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customizer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container">
+        <h1 class="logo">K-Archive</h1>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="archive.html">Archive</a></li>
+            <li>
+              <a href="customizer.html" aria-current="page">Customizer</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="customizer">
+      <h2>Customize Your Photocard</h2>
+
+      <div class="customizer-container">
+        <div class="preview-area" id="print-area">
+          <img id="main-pc" src="photocards/pc1.jpg" alt="Photocard Preview" />
+          <img id="overlay" src="" class="overlay" alt="Overlay" />
+        </div>
+
+        <div class="controls">
+          <label for="overlaySelect">Choose a Border:</label>
+          <select id="overlaySelect">
+            <option value="">None</option>
+            <option value="overlays/frame1.png">Pink Frame</option>
+            <option value="overlays/frame2.png">Holographic</option>
+          </select>
+          <button id="printBtn" class="cta-button">🖨️ Print</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2025 K-Archive. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const imgSrc = params.get("img");
+      if (imgSrc) document.getElementById("main-pc").src = imgSrc;
+
+      document
+        .getElementById("overlaySelect")
+        .addEventListener("change", function () {
+          const overlay = document.getElementById("overlay");
+          overlay.src = this.value;
+        });
+
+      document
+        .getElementById("printBtn")
+        .addEventListener("click", function () {
+          const originalBody = document.body.innerHTML;
+          const printContents = document.getElementById("print-area").outerHTML;
+          document.body.innerHTML = printContents;
+          window.print();
+          document.body.innerHTML = originalBody;
+          location.reload();
+        });
+    </script>
+  </body>
+</html>
