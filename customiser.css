@@ -66,7 +66,6 @@
 
 button {
   width: 10vw;
-  height: 5vh;
 }
 
 .bottom {
@@ -80,38 +79,39 @@ button {
   nav {
     display: none;
   }
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .preview {
-    position: relative;
-  }
-  .photocard {
-    display: flex;
-    width: 75vw;
-    height: 75vh;
-    justify-content: center;
-    align-items: center;
-  }
-  #videoElement {
-    display: flex;
-    width: 75vw;
-    height: 75vh;
-    object-fit: cover;
-    justify-content: center;
-    align-items: center;
-  }
-  .layer {
-    width: 80vw;
-    height: 80vh;
-    opacity: 1;
-  }
   .customiser {
     display: none;
   }
   button {
     display: none;
+  }
+
+  header {
+    display: none;
+  }
+
+  #videoElement {
+    display: flex;
+    width: 85vw;
+    height: 87vh;
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+  }
+  /* .preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
+  .layer {
+    width: 97vw;
+    height: auto;
+    opacity: 1;
+    position: absolute;
+    left: -6vw;
+  }
+  .photocard {
+    width: 85vw;
+    height: auto;
   }
 }

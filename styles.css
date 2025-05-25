@@ -77,8 +77,6 @@ a {
   object-fit: cover;
   border-radius: 1vw;
 }
-/* gpt below */
-/* Base */
 * {
   margin: 0;
   padding: 0;
@@ -188,49 +186,6 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Features */
-.features {
-  background: #ffe3f1;
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.features h3 {
-  font-size: 2rem;
-  color: #cc2e8b;
-  margin-bottom: 2rem;
-}
-
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.feature {
-  background: white;
-  border-radius: 1rem;
-  padding: 2rem 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-}
-
-.feature:hover {
-  transform: translateY(-5px);
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 2rem;
-  background: #fff;
-  color: #777;
-  font-size: 0.9rem;
-}
-
-/* archive and customiser 2 gpt */
 /* Archive Grid */
 .archive {
   padding: 4rem 2rem;
@@ -279,29 +234,6 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-}
-
-/* Print Styling */
-@media print {
-  body * {
-    visibility: hidden;
-  }
-  #print-area,
-  #print-area * {
-    visibility: visible;
-  }
-  .photocard {
-    width: 25vw;
-    height: 38.75vw;
-    margin: auto;
-  }
-  .preview {
-    /* border: 0.2vw solid rgba(167, 26, 2, 0.5); */
-    /* position: absolute; */
-    /* left: 10vw;
-  top: 15vh; */
-    position: relative;
-  }
 }
 
 /* customiser css file merge */
@@ -373,8 +305,13 @@ body {
 }
 
 button {
-  width: 10vw;
-  height: 5vh;
+  padding: 0.75rem 1.5rem;
+  background-color: #ff66b2;
+  color: white;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s;
 }
 
 .bottom {
