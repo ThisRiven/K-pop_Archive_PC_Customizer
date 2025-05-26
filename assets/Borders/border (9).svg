@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 457.28 628.52">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#drop-shadow-3);
+        stroke-width: 2.37px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        fill: none;
+      }
+
+      .cls-1, .cls-3, .cls-4, .cls-5, .cls-6 {
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-7 {
+        fill: #fd9aab;
+      }
+
+      .cls-8 {
+        fill: url(#radial-gradient-2);
+        filter: url(#drop-shadow-7);
+      }
+
+      .cls-9 {
+        opacity: .56;
+      }
+
+      .cls-10 {
+        fill: url(#radial-gradient);
+        filter: url(#drop-shadow-1);
+      }
+
+      .cls-11 {
+        fill: url(#radial-gradient-4);
+        filter: url(#drop-shadow-9);
+      }
+
+      .cls-3 {
+        filter: url(#drop-shadow-4);
+        stroke-width: 1.82px;
+      }
+
+      .cls-4 {
+        filter: url(#drop-shadow-5);
+        stroke-width: 2.46px;
+      }
+
+      .cls-12 {
+        fill: url(#radial-gradient-3);
+        filter: url(#drop-shadow-8);
+      }
+
+      .cls-13 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-5 {
+        filter: url(#drop-shadow-2);
+        stroke-width: 4.63px;
+      }
+
+      .cls-14 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-6 {
+        filter: url(#drop-shadow-6);
+        stroke-width: .93px;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="221.5" y1="0" x2="221.5" y2="624" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffb5d1"/>
+      <stop offset=".96" stop-color="#fff"/>
+    </linearGradient>
+    <clipPath id="clippath">
+      <path class="cls-2" d="M390.35,43c5.33,0,9.65,4.32,9.65,9.65v518.7c0,5.33-4.32,9.65-9.65,9.65H52.65c-5.33,0-9.65-4.32-9.65-9.65V52.65c0-5.33,4.32-9.65,9.65-9.65h337.7M390.35,0H52.65C23.62,0,0,23.62,0,52.65v518.7c0,29.03,23.62,52.65,52.65,52.65h337.7c29.03,0,52.65-23.62,52.65-52.65V52.65c0-29.03-23.62-52.65-52.65-52.65h0Z"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="538.51" cy="366.38" fx="538.51" fy="343.95" r="92.25" gradientTransform="translate(-259.23 260.73) rotate(-10.93)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff7bac"/>
+      <stop offset=".28" stop-color="#ffa4c6"/>
+      <stop offset=".74" stop-color="#ffe5ef"/>
+      <stop offset=".96" stop-color="#fff"/>
+    </radialGradient>
+    <filter id="drop-shadow-1" x="213.28" y="401.52" width="244" height="227" filterUnits="userSpaceOnUse">
+      <feOffset dx="2.65" dy="1.33"/>
+      <feGaussianBlur result="blur" stdDeviation="7.95"/>
+      <feFlood flood-color="#000" flood-opacity=".56"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-2" x="346.49" y="153.74" width="85" height="77" filterUnits="userSpaceOnUse">
+      <feOffset dx=".85" dy=".42"/>
+      <feGaussianBlur result="blur-2" stdDeviation="2.55"/>
+      <feFlood flood-color="#fff" flood-opacity=".56"/>
+      <feComposite in2="blur-2" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-3" x="351.22" y="104.46" width="43" height="41" filterUnits="userSpaceOnUse">
+      <feOffset dx=".44" dy=".22"/>
+      <feGaussianBlur result="blur-3" stdDeviation="1.31"/>
+      <feFlood flood-color="#fff" flood-opacity=".56"/>
+      <feComposite in2="blur-3" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-4" x="34.13" y="378.37" width="34" height="31" filterUnits="userSpaceOnUse">
+      <feOffset dx=".33" dy=".17"/>
+      <feGaussianBlur result="blur-4" stdDeviation="1"/>
+      <feFlood flood-color="#fff" flood-opacity=".56"/>
+      <feComposite in2="blur-4" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-5" x="62.07" y="403.32" width="46" height="42" filterUnits="userSpaceOnUse">
+      <feOffset dx=".45" dy=".23"/>
+      <feGaussianBlur result="blur-5" stdDeviation="1.36"/>
+      <feFlood flood-color="#fff" flood-opacity=".56"/>
+      <feComposite in2="blur-5" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-6" x="48.6" y="432.84" width="17" height="16" filterUnits="userSpaceOnUse">
+      <feOffset dx=".17" dy=".09"/>
+      <feGaussianBlur result="blur-6" stdDeviation=".51"/>
+      <feFlood flood-color="#fff" flood-opacity=".56"/>
+      <feComposite in2="blur-6" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <radialGradient id="radial-gradient-2" cx="-1765.34" cy="-4066.88" fx="-1765.34" fy="-4083.8" r="69.59" gradientTransform="translate(662.25 1094.35) rotate(15.09) scale(.23 .19) skewX(26.68)" xlink:href="#radial-gradient"/>
+    <filter id="drop-shadow-7" x="18.37" y="85.62" width="42" height="40" filterUnits="userSpaceOnUse">
+      <feOffset dx=".42" dy=".21"/>
+      <feGaussianBlur result="blur-7" stdDeviation="1.26"/>
+      <feFlood flood-color="#000" flood-opacity=".56"/>
+      <feComposite in2="blur-7" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <radialGradient id="radial-gradient-3" cx="-1510.92" cy="-4170.09" fx="-1510.92" fy="-4170.09" r="24.89" gradientTransform="translate(662.25 1094.35) rotate(15.09) scale(.23 .19) skewX(26.68)" xlink:href="#radial-gradient"/>
+    <filter id="drop-shadow-8" x="80.79" y="91.04" width="16" height="15" filterUnits="userSpaceOnUse">
+      <feOffset dx=".15" dy=".07"/>
+      <feGaussianBlur result="blur-8" stdDeviation=".45"/>
+      <feFlood flood-color="#000" flood-opacity=".56"/>
+      <feComposite in2="blur-8" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <radialGradient id="radial-gradient-4" cx="-1567.43" cy="-3928.1" fx="-1567.43" fy="-3956.74" r="117.77" gradientTransform="translate(662.25 1094.35) rotate(15.09) scale(.23 .19) skewX(26.68)" xlink:href="#radial-gradient"/>
+    <filter id="drop-shadow-9" x="54.76" y="114.01" width="70" height="65" filterUnits="userSpaceOnUse">
+      <feOffset dx=".71" dy=".35"/>
+      <feGaussianBlur result="blur-9" stdDeviation="2.13"/>
+      <feFlood flood-color="#000" flood-opacity=".56"/>
+      <feComposite in2="blur-9" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Layer_2-2" data-name="Layer 2">
+    <g>
+      <path class="cls-13" d="M390.35,43c5.33,0,9.65,4.32,9.65,9.65v518.7c0,5.33-4.32,9.65-9.65,9.65H52.65c-5.33,0-9.65-4.32-9.65-9.65V52.65c0-5.33,4.32-9.65,9.65-9.65h337.7M390.35,0H52.65C23.62,0,0,23.62,0,52.65v518.7C0,600.38,23.62,624,52.65,624h337.7c29.03,0,52.65-23.62,52.65-52.65V52.65C443,23.62,419.38,0,390.35,0h0Z"/>
+      <g class="cls-14">
+        <g>
+          <g class="cls-9">
+            <polygon class="cls-7" points="-258.14 453.93 -310.68 403.21 258.86 -146.6 311.4 -95.88 -258.14 453.93"/>
+          </g>
+          <g class="cls-9">
+            <polygon class="cls-7" points="-160.61 548.08 -213.15 497.36 356.39 -52.45 408.93 -1.73 -160.61 548.08"/>
+          </g>
+          <g class="cls-9">
+            <polygon class="cls-7" points="-63.08 642.24 -115.63 591.51 453.92 41.7 506.46 92.42 -63.08 642.24"/>
+          </g>
+          <g class="cls-9">
+            <polygon class="cls-7" points="34.45 736.39 -18.1 685.66 551.45 135.85 603.99 186.57 34.45 736.39"/>
+          </g>
+          <g class="cls-9">
+            <polygon class="cls-7" points="131.98 830.54 79.43 779.81 648.98 230 701.52 280.72 131.98 830.54"/>
+          </g>
+          <g class="cls-9">
+            <polygon class="cls-7" points="699.22 453.93 751.76 403.21 182.22 -146.6 129.67 -95.88 699.22 453.93"/>
+          </g>
+          <g class="cls-9">
+            <polygon class="cls-7" points="601.69 548.08 654.23 497.36 84.69 -52.45 32.14 -1.73 601.69 548.08"/>
+          </g>
+          <g class="cls-9">
+            <polygon class="cls-7" points="504.16 642.24 556.7 591.51 -12.84 41.7 -65.39 92.42 504.16 642.24"/>
+          </g>
+          <g class="cls-9">
+            <polygon class="cls-7" points="406.63 736.39 459.17 685.66 -110.37 135.85 -162.91 186.57 406.63 736.39"/>
+          </g>
+          <g class="cls-9">
+            <polygon class="cls-7" points="309.1 830.54 361.64 779.81 -207.9 230 -260.44 280.72 309.1 830.54"/>
+          </g>
+          <g class="cls-9">
+            <polygon class="cls-7" points="211.57 924.69 264.11 873.96 -305.43 324.15 -357.97 374.87 211.57 924.69"/>
+          </g>
+        </g>
+      </g>
+      <path class="cls-10" d="M405.53,432.99c25.84,16.28,32.61,50.87,15.51,76.17l-60.93,90.1c-2.36,3.49-7.1,4.4-10.59,2.05l-90.15-60.96c-25.02-16.92-31.74-51.19-14.32-75.88,16.83-23.85,49.72-29.94,74.01-13.52l1.67,1.13c3.47,2.35,8.19,1.44,10.54-2.04l1.12-1.66c8.31-12.29,20.82-20.05,34.33-22.67,12.97-2.5,26.85-.26,38.82,7.28Z"/>
+      <path class="cls-5" d="M414.62,171.1c6.6,7.23,5.76,18.49-1.67,24.86l-26.48,22.68c-1.03.88-2.57.76-3.45-.27l-22.69-26.5c-6.3-7.36-5.46-18.52,2.02-24.67,7.23-5.94,17.91-5.03,24.02,2.1l.42.49c.87,1.02,2.41,1.14,3.43.27l.49-.42c3.61-3.09,8.14-4.43,12.53-4.09,4.22.33,8.32,2.2,11.38,5.55Z"/>
+      <path class="cls-1" d="M383.37,111.17c4.42,2.39,5.91,7.98,3.39,12.32l-9,15.46c-.35.6-1.12.8-1.71.45l-15.47-9c-4.29-2.5-5.77-8.05-3.19-12.29s7.83-5.46,11.99-3.04l.29.17c.6.35,1.36.15,1.71-.45l.17-.29c1.23-2.11,3.19-3.52,5.38-4.1,2.1-.55,4.4-.34,6.45.76Z"/>
+      <path class="cls-3" d="M59.5,383.14c3.4,1.83,4.54,6.13,2.6,9.47l-6.91,11.88c-.27.46-.86.62-1.32.35l-11.88-6.92c-3.3-1.92-4.44-6.18-2.45-9.44s6.01-4.2,9.21-2.33l.22.13c.46.27,1.05.11,1.31-.35l.13-.22c.94-1.62,2.45-2.71,4.13-3.15,1.61-.43,3.38-.26,4.96.59Z"/>
+      <path class="cls-4" d="M98.39,412.38c3.62,3.75,3.33,9.75-.53,13.25l-13.76,12.45c-.53.48-1.36.44-1.84-.09l-12.46-13.76c-3.46-3.82-3.18-9.77.71-13.15s9.45-2.94,12.81.77l.23.25c.48.53,1.3.57,1.83.09l.25-.23c1.88-1.7,4.26-2.48,6.61-2.36,2.25.11,4.46,1.05,6.13,2.78Z"/>
+      <path class="cls-6" d="M62.81,438.42c.98,1.71.31,3.89-1.44,4.81l-6.22,3.28c-.24.13-.54.03-.67-.21l-3.28-6.22c-.91-1.73-.25-3.88,1.49-4.76s3.75-.19,4.63,1.48l.06.11c.13.24.42.33.66.21l.11-.06c.85-.45,1.8-.51,2.65-.25.82.25,1.54.8,1.99,1.6Z"/>
+      <path class="cls-8" d="M50.13,98.3c4.58,4.41,6.15,10.2,3.57,12.79l-9.22,9.22c-.36.36-1.15.14-1.77-.48l-16.03-16.03c-4.45-4.45-6.01-10.18-3.36-12.65s8.06-.87,12.38,3.45l.3.3c.62.62,1.41.83,1.76.47l.17-.17c1.26-1.26,3.28-1.51,5.54-.9,2.17.58,4.55,1.96,6.67,4.01Z"/>
+      <path class="cls-12" d="M92.85,95.96c1.64,1.58,2.2,3.65,1.28,4.57l-3.3,3.3c-.13.13-.41.05-.63-.17l-5.73-5.73c-1.59-1.59-2.15-3.64-1.2-4.52s2.88-.31,4.43,1.23l.11.11c.22.22.5.3.63.17l.06-.06c.45-.45,1.17-.54,1.98-.32.77.21,1.63.7,2.38,1.43Z"/>
+      <path class="cls-11" d="M108.39,134.5c7.75,7.47,10.41,17.26,6.03,21.64l-15.6,15.6c-.6.6-1.94.24-2.99-.81l-27.13-27.13c-7.53-7.53-10.17-17.23-5.69-21.41,4.33-4.04,13.64-1.47,20.94,5.84l.5.5c1.05,1.05,2.38,1.41,2.98.8l.29-.29c2.13-2.13,5.55-2.56,9.37-1.53,3.67.99,7.7,3.32,11.29,6.78Z"/>
+    </g>
+  </g>
+</svg>
