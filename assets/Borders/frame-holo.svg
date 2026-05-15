@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 450" fill="none">
+  <rect x="3" y="3" width="294" height="444" rx="12" stroke="url(#hg)" stroke-width="6"/>
+  <rect x="12" y="12" width="276" height="426" rx="10" stroke="url(#hg)" stroke-width="2" opacity="0.3"/>
+  <line x1="0" y1="100" x2="300" y2="70" stroke="url(#hg)" stroke-width="0.8" opacity="0.4"/>
+  <line x1="0" y1="200" x2="300" y2="170" stroke="url(#hg)" stroke-width="0.8" opacity="0.3"/>
+  <line x1="0" y1="300" x2="300" y2="330" stroke="url(#hg)" stroke-width="0.8" opacity="0.4"/>
+  <defs>
+    <linearGradient id="hg" x1="0" y1="0" x2="300" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ff4da6"/>
+      <stop offset="20%" stop-color="#67e8f9"/>
+      <stop offset="40%" stop-color="#c084fc"/>
+      <stop offset="60%" stop-color="#ffd700"/>
+      <stop offset="80%" stop-color="#ff4da6"/>
+      <stop offset="100%" stop-color="#67e8f9"/>
+    </linearGradient>
+  </defs>
+</svg>

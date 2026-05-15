@@ -3,182 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="customiser.css" />
+    <meta name="description" content="Use your webcam to create unique K-pop photocards with border overlays." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
-      rel="stylesheet"
-    />
-    <title>Photocard Customiser</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Webcam Customizer — K-Archive</title>
   </head>
   <body>
-    <header class="navbar">
-      <div class="container">
-        <h1 class="logo">K-Archive</h1>
+    <div class="sparkle-container" id="sparkles"></div>
+    <header class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="Index.html" class="logo"><span class="logo-icon">✦</span><span class="logo-text">K-Archive</span></a>
         <nav>
-          <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="archive.html">Archive</a></li>
-            <li><a href="webcamcustomizer.html">Customizer</a></li>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="Index.html" class="nav-link">Home</a></li>
+            <li><a href="archive.html" class="nav-link">Archive</a></li>
+            <li><a href="webcamcustomizer.html" class="nav-link active">Customizer</a></li>
           </ul>
         </nav>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
       </div>
     </header>
 
-    <div class="container">
-      <div class="preview">
-        <video autoplay="true" id="videoElement"></video>
-        <img
-          src="images/Gallery/pc67.jpg"
-          alt="."
-          class="photocard"
-          id="photocard"
-        />
-        <img class="layer" id="layer1" src="" />
-      </div>
-      <div class="customiser">
-        <div class="customiser_row_1 row">
-          <img
-            src="assets\Borders\border (1).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets\Borders\border (2).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets\Borders\border (3).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets\Borders\border (4).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets\Borders\border (5).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
+    <section class="customizer-section">
+      <div class="customizer-layout">
+        <div class="preview">
+          <video autoplay playsinline id="videoElement"></video>
+          <img class="layer" id="layer1" src="" alt="" />
         </div>
-        <div class="customiser_row_2 row">
-          <img
-            src="assets/Borders/row 2/1x/1br2.png"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets/Borders/row 2/1x/2br2.png"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets/Borders/row 2/1x/3br2.png"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets/Borders/row 2/1x/4br2.png"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets/Borders/row 2/1x/5br2.png"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-        </div>
-        <div class="customiser_row_3 row">
-          <img
-            src="assets\Borders\border (6).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets\Borders\border (7).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets\Borders\border (8).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets\Borders\border (9).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets\Borders\border (10).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-        </div>
-        <div class="customiser_row_4 row">
-          <img
-            src="assets\Borders\border (1).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets\Borders\border (2).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets\Borders\border (3).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets\Borders\border (4).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets\Borders\border (5).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-        </div>
-        <div class="customiser_row_5 row">
-          <img
-            src="assets\Borders\border (1).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets\Borders\border (2).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets\Borders\border (3).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets\Borders\border (4).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
-          <img
-            src="assets\Borders\border (5).svg"
-            alt=""
-            onclick="selectLayer1(this)"
-          />
+        <div class="customiser-panel">
+          <h2>✦ Choose a Border Overlay</h2>
+          <div class="customiser_row_1 row">
+            <img src="assets/Borders/border (1).svg" alt="Border 1" onclick="selectLayer1(this)" />
+            <img src="assets/Borders/border (2).svg" alt="Border 2" onclick="selectLayer1(this)" />
+            <img src="assets/Borders/border (3).svg" alt="Border 3" onclick="selectLayer1(this)" />
+            <img src="assets/Borders/border (4).svg" alt="Border 4" onclick="selectLayer1(this)" />
+            <img src="assets/Borders/border (5).svg" alt="Border 5" onclick="selectLayer1(this)" />
+          </div>
+          <div class="customiser_row_2 row">
+            <img src="assets/Borders/row 2/1x/1br2.png" alt="Border 6" onclick="selectLayer1(this)" />
+            <img src="assets/Borders/row 2/1x/2br2.png" alt="Border 7" onclick="selectLayer1(this)" />
+            <img src="assets/Borders/row 2/1x/3br2.png" alt="Border 8" onclick="selectLayer1(this)" />
+            <img src="assets/Borders/row 2/1x/4br2.png" alt="Border 9" onclick="selectLayer1(this)" />
+            <img src="assets/Borders/row 2/1x/5br2.png" alt="Border 10" onclick="selectLayer1(this)" />
+          </div>
+          <div class="customiser_row_3 row">
+            <img src="assets/Borders/border (6).svg" alt="Border 11" onclick="selectLayer1(this)" />
+            <img src="assets/Borders/border (7).svg" alt="Border 12" onclick="selectLayer1(this)" />
+            <img src="assets/Borders/border (8).svg" alt="Border 13" onclick="selectLayer1(this)" />
+            <img src="assets/Borders/border (9).svg" alt="Border 14" onclick="selectLayer1(this)" />
+            <img src="assets/Borders/border (10).svg" alt="Border 15" onclick="selectLayer1(this)" />
+          </div>
+          <div class="bottom">
+            <button onclick="clearBorder()">✕ Clear</button>
+            <button onclick="window.print()">🖨 Print</button>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="bottom">
-      <button onclick="window.print()">Print</button>
-    </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-brand"><span class="logo"><span class="logo-icon">✦</span> <span class="logo-text">K-Archive</span></span><p>Your go-to platform for K-pop photocard customization.</p></div>
+        <div class="footer-links"><a href="Index.html">Home</a><a href="archive.html">Archive</a><a href="webcamcustomizer.html">Customizer</a></div>
+        <div class="footer-bottom"><p>&copy; 2026 K-Archive. Made with ♡</p></div>
+      </div>
+    </footer>
+
     <script src="script.js"></script>
+    <script>
+      const sc=document.getElementById('sparkles');for(let i=0;i<20;i++){const s=document.createElement('div');s.className='sparkle';s.style.left=Math.random()*100+'%';s.style.animationDuration=(6+Math.random()*8)+'s';s.style.animationDelay=Math.random()*10+'s';s.style.width=s.style.height=(1.5+Math.random()*2.5)+'px';sc.appendChild(s);}
+      document.getElementById('hamburger').addEventListener('click',function(){this.classList.toggle('active');document.getElementById('nav-links').classList.toggle('open');});
+      window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>40);});
+    </script>
   </body>
 </html>

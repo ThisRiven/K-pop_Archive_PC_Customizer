@@ -1,50 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
-      rel="stylesheet"
-    />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>K-pop PC Customizer</title>
-  </head>
-  <body>
-    <!-- <nav>
-      <p class="navp nunito-bold"><a href="Index.html">Home</a></p>
-      <p class="navp nunito-bold">
-        <a href="archive.html">The Archive</a>
-      </p>
-      <p class="navp nunito-bold">
-        <a href="customiser.html">PC Cuztomizer</a>
-      </p>
-    </nav> -->
-    <header class="navbar">
-      <div class="container">
-        <h1 class="logo">K-Archive</h1>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="archive.html">Archive</a></li>
-            <li><a href="webcamcustomizer.html">Customizer</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <section class="hero">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="K-Archive — Browse, customize, and print K-pop photocards with custom borders, webcam overlays, and more."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <title>K-Archive — K-pop Photocard Customizer</title>
+</head>
+<body>
+<div class="sparkles" id="sparkles"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="logo" onclick="go('home')"><span>✦</span> <b>K-Archive</b></div>
+    <div class="nav-tabs" id="nav-tabs">
+      <button class="nav-tab active" data-view="home">Home</button>
+      <button class="nav-tab" data-view="archive">Archive</button>
+      <button class="nav-tab" data-view="customize">Customizer</button>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ========== HOME ========== -->
+<div class="view active" id="v-home">
+  <section class="hero">
+    <div class="hero-mosaic"><div class="mosaic-track" id="mosaic"></div></div>
+    <div class="hero-glow hero-g1"></div><div class="hero-glow hero-g2"></div>
+    <div class="hero-grid">
       <div class="hero-content">
-        <h2>Customize Your K-pop Photocards</h2>
-        <p>
-          Create fun overlays, capture webcam shots, and print your favorites!
-        </p>
-        <a href="archive.html" class="cta-button">Start Browsing</a>
+        <span class="hero-badge">✦ Your Ultimate K-pop Tool</span>
+        <h1 class="hero-title">Customize Your<br><span class="grad-text">K-pop Photocards</span></h1>
+        <p class="hero-desc">Browse our curated archive, add stunning borders, capture webcam shots — and print your personalized photocards.</p>
+        <div class="hero-btns">
+          <button class="btn btn-p" onclick="go('archive')">Browse Archive →</button>
+          <button class="btn btn-s" onclick="go('customize')">Try Customizer</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>100+</b><small>Photocards</small></div>
+          <div class="stat-div"></div>
+          <div class="stat"><b>12</b><small>Borders</small></div>
+          <div class="stat-div"></div>
+          <div class="stat"><b>Free</b><small>Forever</small></div>
+        </div>
       </div>
-      <div class="hero-img">
-        <img src="images/Gallery/pc95.jpg" alt="Sample photocard" />
+      <div class="hero-visual">
+        <div class="card-stack">
+          <div class="fcard fc3"><img src="images/Gallery/pc22.jpg" alt=""/></div>
+          <div class="fcard fc2"><img src="images/Gallery/pc45.jpg" alt=""/></div>
+          <div class="fcard fc1"><img src="images/Gallery/pc95.jpg" alt=""/></div>
+        </div>
       </div>
-    </section>
-  </body>
+    </div>
+  </section>
+  <section class="features">
+    <div class="sec-inner">
+      <span class="sec-badge">Features</span>
+      <h2 class="sec-title">Everything You Need</h2>
+      <div class="feat-grid">
+        <div class="feat"><div class="feat-ico">📂</div><h3>Curated Archive</h3><p>Browse 100+ high-quality K-pop photocards from your favorite groups.</p></div>
+        <div class="feat"><div class="feat-ico">🖼</div><h3>Custom Borders</h3><p>Hand-designed gradient, holographic, and gold borders to frame your cards.</p></div>
+        <div class="feat"><div class="feat-ico">📤</div><h3>Upload Your Own</h3><p>Drag & drop or browse to add your own photocards to the collection.</p></div>
+        <div class="feat"><div class="feat-ico">🖨</div><h3>Print Ready</h3><p>Print your customized photocards at home with optimized layouts.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ========== ARCHIVE ========== -->
+<div class="view" id="v-archive">
+  <section class="archive">
+    <div class="archive-head">
+      <span class="sec-badge vis">✦ Collection</span>
+      <h1 class="sec-title vis">Photocard <span class="grad-text">Archive</span></h1>
+      <p>Click any photocard to preview it. Use the Customize button to add borders.</p>
+    </div>
+    <div class="toolbar">
+      <div class="tb-l">
+        <span class="counter" id="counter">0 cards</span>
+        <button class="btn-sm" id="btn-fav">♡ Favorites</button>
+      </div>
+      <div class="tb-r">
+        <button class="btn-sm" id="btn-upload">+ Upload</button>
+        <button class="btn-sm danger" id="btn-manage">⚙ Manage</button>
+      </div>
+    </div>
+    <div class="upload-zone" id="upzone">
+      <em>📸</em><p>Drag & drop your photocards here, or <u id="upbrowse">browse files</u></p>
+      <input type="file" id="upfile" accept="image/*" multiple/>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </section>
+</div>
+
+<!-- ========== CUSTOMIZER ========== -->
+<div class="view" id="v-customize">
+  <section class="cust">
+    <div class="cust-layout">
+      <div class="preview" id="preview-area">
+        <div class="preview-wrap">
+          <img class="preview-img" id="cust-img" src="images/Gallery/pc95.jpg" alt="Photocard"/>
+          <video id="cust-video" autoplay playsinline style="display:none"></video>
+          <img class="layer" id="layer" src="" alt=""/>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>✦ Customize</h2>
+        <div class="mode-toggle">
+          <button class="mode-btn on" id="mode-photo">📷 Photo</button>
+          <button class="mode-btn" id="mode-webcam">🎥 Webcam</button>
+        </div>
+        <p class="panel-sub">New Borders</p>
+        <div class="brow">
+          <img src="assets/Borders/frame-gradient.svg" alt="Gradient" class="border-opt"/>
+          <img src="assets/Borders/frame-hearts.svg" alt="Hearts" class="border-opt"/>
+          <img src="assets/Borders/frame-glow.svg" alt="Glow" class="border-opt"/>
+          <img src="assets/Borders/frame-gold.svg" alt="Gold" class="border-opt"/>
+          <img src="assets/Borders/frame-stars.svg" alt="Stars" class="border-opt"/>
+        </div>
+        <div class="brow">
+          <img src="assets/Borders/frame-holo.svg" alt="Holographic" class="border-opt"/>
+        </div>
+        <p class="panel-sub">Classic Borders</p>
+        <div class="brow">
+          <img src="assets/Borders/border (1).svg" alt="B1" class="border-opt"/>
+          <img src="assets/Borders/border (2).svg" alt="B2" class="border-opt"/>
+          <img src="assets/Borders/border (3).svg" alt="B3" class="border-opt"/>
+          <img src="assets/Borders/border (4).svg" alt="B4" class="border-opt"/>
+          <img src="assets/Borders/border (5).svg" alt="B5" class="border-opt"/>
+        </div>
+        <div class="brow">
+          <img src="assets/Borders/border (6).svg" alt="B6" class="border-opt"/>
+          <img src="assets/Borders/border (7).svg" alt="B7" class="border-opt"/>
+          <img src="assets/Borders/border (8).svg" alt="B8" class="border-opt"/>
+          <img src="assets/Borders/border (9).svg" alt="B9" class="border-opt"/>
+          <img src="assets/Borders/border (10).svg" alt="B10" class="border-opt"/>
+        </div>
+        <div class="cust-btns">
+          <button class="cust-btn cust-btn-s" id="btn-clear">✕ Clear</button>
+          <button class="cust-btn cust-btn-p" id="btn-print">🖨 Print</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <div class="lb-bg" id="lb-bg"></div>
+  <div class="lb-body">
+    <img id="lb-img" src="" alt="Preview"/>
+    <div class="lb-btns">
+      <button class="lb-btn" id="lb-fav">♡</button>
+      <button class="lb-btn" id="lb-cust">✦ Customize</button>
+      <button class="lb-btn" id="lb-close">✕ Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="logo" onclick="go('home')"><span>✦</span> <b>K-Archive</b></div>
+    <p>Your go-to platform for K-pop photocard customization.</p>
+    <div class="footer-links">
+      <a href="#" onclick="go('home');return false">Home</a>
+      <a href="#" onclick="go('archive');return false">Archive</a>
+      <a href="#" onclick="go('customize');return false">Customizer</a>
+    </div>
+    <span class="footer-copy">&copy; 2026 K-Archive. Made with ♡</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
 </html>
