@@ -48,6 +48,7 @@ const custImg = $('cust-img');
 const custVideo = $('cust-video');
 const lb = $('lb');
 const lbImg = $('lb-img');
+const stickerContainer = $('sticker-container');
 
 // ===== SPARKLES =====
 const sparkleBox = $('sparkles');
@@ -401,7 +402,62 @@ $('btn-clear').addEventListener('click', () => {
   layer.src = '';
   layer.classList.remove('on');
   document.querySelectorAll('.border-opt').forEach(i => i.classList.remove('sel'));
+  stickerContainer.innerHTML = '';
 });
+
+// Sticker creation
+document.querySelectorAll('.sticker-opt').forEach(opt => {
+  opt.addEventListener('click', () => {
+    addSticker(opt.dataset.emoji);
+  });
+});
+
+function addSticker(emoji) {
+  const s = document.createElement('div');
+  s.className = 'sticker';
+  s.textContent = emoji;
+  s.style.fontSize = '3rem';
+  s.style.left = '50%';
+  s.style.top = '50%';
+  s.style.transform = 'translate(-50%, -50%)';
+  
+  // Drag logic
+  let isDragging = false;
+  let startX, startY;
+
+  s.addEventListener('mousedown', e => {
+    isDragging = true;
+    startX = e.clientX - s.offsetLeft;
+    startY = e.clientY - s.offsetTop;
+    s.style.cursor = 'grabbing';
+    e.stopPropagation();
+  });
+
+  document.addEventListener('mousemove', e => {
+    if (!isDragging) return;
+    s.style.left = (e.clientX - startX) + 'px';
+    s.style.top = (e.clientY - startY) + 'px';
+  });
+
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+    s.style.cursor = 'move';
+  });
+
+  // Resize via mousewheel
+  s.addEventListener('wheel', e => {
+    e.preventDefault();
+    let size = parseFloat(s.style.fontSize);
+    size += e.deltaY > 0 ? -0.2 : 0.2;
+    s.style.fontSize = Math.max(1, Math.min(10, size)) + 'rem';
+    e.stopPropagation();
+  }, { passive: false });
+
+  // Double-click to remove
+  s.addEventListener('dblclick', () => s.remove());
+
+  stickerContainer.appendChild(s);
+}
 
 $('btn-print').addEventListener('click', () => window.print());
 
@@ -454,7 +510,57 @@ function stopWebcam() {
   webcamOn = false;
 }
 
-// ===== SCROLL REVEAL =====
+$('btn-save').addEventListener('click', () => {
+  const wrap = document.querySelector('.preview-wrap');
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  
+  // High-res export
+  canvas.width = 600;
+  canvas.height = 900;
+
+  // 1. Draw Base
+  if (custImg.style.display !== 'none') {
+    ctx.drawImage(custImg, 0, 0, 600, 900);
+  } else {
+    ctx.drawImage(custVideo, 0, 0, 600, 900);
+  }
+
+  // 2. Draw Frame
+  if (layer.src && layer.classList.contains('on')) {
+    const frame = new Image();
+    frame.crossOrigin = "anonymous";
+    frame.src = layer.src;
+    frame.onload = () => {
+      ctx.drawImage(frame, 0, 0, 600, 900);
+      drawStickers();
+    };
+  } else {
+    drawStickers();
+  }
+
+  function drawStickers() {
+    const stickers = stickerContainer.querySelectorAll('.sticker');
+    stickers.forEach(s => {
+      const rect = s.getBoundingClientRect();
+      const parentRect = wrap.getBoundingClientRect();
+      
+      const x = ((rect.left - parentRect.left) / parentRect.width) * 600;
+      const y = ((rect.top - parentRect.top) / parentRect.height) * 900;
+      
+      const fontSizeRem = parseFloat(s.style.fontSize);
+      const fontSizePx = (fontSizeRem * 16) * (600 / parentRect.width);
+      
+      ctx.font = `${fontSizePx}px Arial`;
+      ctx.fillText(s.textContent, x, y + fontSizePx * 0.8);
+    });
+
+    const link = document.createElement('a');
+    link.download = 'k-archive-pc.png';
+    link.href = canvas.toDataURL();
+    link.click();
+  }
+});
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
 }, { threshold: 0.1 });
