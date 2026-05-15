@@ -11,6 +11,37 @@
   <title>K-Archive — K-pop Photocard Customizer</title>
 </head>
 <body>
+
+<!-- ========== AUTH MODAL ========== -->
+<div class="auth-overlay" id="auth-overlay">
+  <div class="auth-modal" id="auth-modal">
+    <div class="auth-logo"><span>✦</span> <b>K-Archive</b></div>
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Sign In</button>
+      <button class="auth-tab" id="tab-signup" onclick="switchAuthTab('signup')">Create Account</button>
+    </div>
+    <!-- LOGIN -->
+    <div class="auth-form" id="form-login">
+      <p class="auth-sub">Welcome back! Enter your username to continue.</p>
+      <label class="auth-label">Username</label>
+      <input class="auth-input" id="login-user" type="text" placeholder="your_username" autocomplete="username" maxlength="30"/>
+      <div class="auth-error" id="login-error"></div>
+      <button class="auth-btn" id="login-btn">Sign In →</button>
+      <p class="auth-hint">Don't have an account? <a href="#" onclick="switchAuthTab('signup');return false">Create one</a></p>
+    </div>
+    <!-- SIGNUP -->
+    <div class="auth-form" id="form-signup" style="display:none">
+      <p class="auth-sub">Create your free account and start building your collection.</p>
+      <label class="auth-label">Choose a Username</label>
+      <input class="auth-input" id="signup-user" type="text" placeholder="your_username" autocomplete="username" maxlength="30"/>
+      <p class="auth-rules">3–30 characters. Letters, numbers, underscores only.</p>
+      <div class="auth-error" id="signup-error"></div>
+      <button class="auth-btn" id="signup-btn">Create Account →</button>
+      <p class="auth-hint">Already have an account? <a href="#" onclick="switchAuthTab('login');return false">Sign in</a></p>
+    </div>
+  </div>
+</div>
+
 <div class="sparkles" id="sparkles"></div>
 
 <!-- NAV -->
@@ -21,6 +52,13 @@
       <button class="nav-tab active" data-view="home">Home</button>
       <button class="nav-tab" data-view="archive">Archive</button>
       <button class="nav-tab" data-view="customize">Customizer</button>
+    </div>
+    <div class="nav-account" id="nav-account">
+      <div class="acct-badge" id="acct-badge">
+        <span class="acct-avatar" id="acct-avatar">?</span>
+        <span class="acct-name" id="acct-name">Loading…</span>
+      </div>
+      <button class="acct-logout" id="acct-logout" title="Sign out">↩</button>
     </div>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>

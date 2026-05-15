@@ -5,10 +5,34 @@
 // ===== CONFIG =====
 const PC = [1,5,6,7,9,11,13,15,17,20,22,24,26,28,30,32,34,36,38,40,42,43,45,47,49,51,53,55,57,59,61,63,65,67,69,72,74,77,79,81,83,85,87,89,91,93,95,97,99,101,103,105];
 const MOSAIC_PCS = [1,9,17,26,34,42,51,59,67,77,85,93,5,13,22,30,38,47,55,63,72,81,89,97];
+const USERNAME_RE = /^[a-zA-Z0-9_]{3,30}$/;
+
+// ===== AUTH STATE =====
+// activeUser is the currently logged-in username (stored in sessionStorage to persist across tab navigation but not between independent sessions)
+let activeUser = sessionStorage.getItem('ka_user') || null;
+
+// Per-user storage helpers
+function userKey(suffix) { return 'ka_' + activeUser + '_' + suffix; }
+function loadUserData(suffix, fallback) {
+  if (!activeUser) return fallback;
+  try { return JSON.parse(localStorage.getItem(userKey(suffix)) || 'null') || fallback; }
+  catch { return fallback; }
+}
+function saveUserData(suffix, data) {
+  if (!activeUser) return;
+  localStorage.setItem(userKey(suffix), JSON.stringify(data));
+}
+
+// Registered accounts list (array of usernames — no passwords, purely username-based)
+function getAccounts() {
+  try { return JSON.parse(localStorage.getItem('ka_accounts') || '[]'); }
+  catch { return []; }
+}
+function saveAccounts(list) { localStorage.setItem('ka_accounts', JSON.stringify(list)); }
 
 // ===== STATE =====
-let favs = JSON.parse(localStorage.getItem('ka_favs') || '[]');
-let uploads = JSON.parse(localStorage.getItem('ka_uploads') || '[]');
+let favs = [];
+let uploads = [];
 let managing = false;
 let favsOnly = false;
 let webcamOn = false;
@@ -47,6 +71,104 @@ const mosaic = $('mosaic');
   mosaic.appendChild(img);
 });
 
+// ===== AUTH MODAL =====
+function switchAuthTab(tab) {
+  $('form-login').style.display = tab === 'login' ? 'flex' : 'none';
+  $('form-signup').style.display = tab === 'signup' ? 'flex' : 'none';
+  $('tab-login').classList.toggle('active', tab === 'login');
+  $('tab-signup').classList.toggle('active', tab === 'signup');
+  $('login-error').textContent = '';
+  $('signup-error').textContent = '';
+  // Focus the relevant input
+  setTimeout(() => $(tab === 'login' ? 'login-user' : 'signup-user').focus(), 50);
+}
+
+function showAuthModal() {
+  const overlay = $('auth-overlay');
+  overlay.classList.remove('hidden');
+  switchAuthTab('login');
+}
+
+function hideAuthModal() {
+  $('auth-overlay').classList.add('hidden');
+}
+
+// LOGIN
+$('login-btn').addEventListener('click', () => {
+  const username = $('login-user').value.trim().toLowerCase();
+  const errEl = $('login-error');
+  errEl.textContent = '';
+
+  if (!USERNAME_RE.test(username)) {
+    errEl.textContent = 'Invalid username format.';
+    return;
+  }
+  const accounts = getAccounts();
+  if (!accounts.includes(username)) {
+    errEl.textContent = 'Account not found. Did you mean to sign up?';
+    return;
+  }
+  loginAs(username);
+});
+
+$('login-user').addEventListener('keydown', e => { if (e.key === 'Enter') $('login-btn').click(); });
+
+// SIGNUP
+$('signup-btn').addEventListener('click', () => {
+  const username = $('signup-user').value.trim().toLowerCase();
+  const errEl = $('signup-error');
+  errEl.textContent = '';
+
+  if (!USERNAME_RE.test(username)) {
+    errEl.textContent = 'Username must be 3–30 characters (letters, numbers, underscores).';
+    return;
+  }
+  const accounts = getAccounts();
+  if (accounts.includes(username)) {
+    errEl.textContent = 'That username is taken. Try signing in instead.';
+    return;
+  }
+  // Register and log in
+  accounts.push(username);
+  saveAccounts(accounts);
+  loginAs(username);
+});
+
+$('signup-user').addEventListener('keydown', e => { if (e.key === 'Enter') $('signup-btn').click(); });
+
+function loginAs(username) {
+  activeUser = username;
+  sessionStorage.setItem('ka_user', username);
+  // Load this user's data
+  favs = loadUserData('favs', []);
+  uploads = loadUserData('uploads', []);
+  // Update nav badge
+  updateAccountBadge();
+  hideAuthModal();
+  renderGallery();
+}
+
+function updateAccountBadge() {
+  if (!activeUser) return;
+  $('acct-name').textContent = activeUser;
+  $('acct-avatar').textContent = activeUser.charAt(0).toUpperCase();
+}
+
+// LOGOUT
+$('acct-logout').addEventListener('click', () => {
+  if (!confirm('Sign out of "' + activeUser + '"?')) return;
+  activeUser = null;
+  favs = [];
+  uploads = [];
+  sessionStorage.removeItem('ka_user');
+  managing = false;
+  favsOnly = false;
+  document.body.classList.remove('managing');
+  gallery.innerHTML = '';
+  $('counter').textContent = '0 cards';
+  showAuthModal();
+});
+
 // ===== NAV / ROUTING =====
 function go(view) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
@@ -81,7 +203,7 @@ function isFav(key) { return favs.includes(key); }
 function toggleFav(key) {
   if (isFav(key)) favs = favs.filter(k => k !== key);
   else favs.push(key);
-  localStorage.setItem('ka_favs', JSON.stringify(favs));
+  saveUserData('favs', favs);
 }
 
 // ===== GALLERY RENDER =====
@@ -97,7 +219,7 @@ function renderGallery() {
     gallery.appendChild(makeCard('images/Gallery/pc' + n + '.jpg', 'PC ' + n, key, false, null));
   });
 
-  // Uploaded cards
+  // Uploaded cards (only for logged-in user)
   uploads.forEach((dataUrl, i) => {
     const key = 'up' + i;
     if (favsOnly && !isFav(key)) return;
@@ -137,7 +259,7 @@ function makeCard(src, label, key, isUpload, upIdx) {
   });
   div.appendChild(fav);
 
-  // Delete button (only for uploads)
+  // Delete button (only for user's own uploads, hidden behind manage mode)
   if (isUpload) {
     const del = document.createElement('button');
     del.className = 'pc-del uploaded';
@@ -146,7 +268,7 @@ function makeCard(src, label, key, isUpload, upIdx) {
       e.stopPropagation();
       if (!confirm('Delete "' + label + '"?\n\nThis cannot be undone.')) return;
       uploads.splice(upIdx, 1);
-      localStorage.setItem('ka_uploads', JSON.stringify(uploads));
+      saveUserData('uploads', uploads);
       renderGallery();
     });
     div.appendChild(del);
@@ -186,7 +308,6 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); }
 $('lb-fav').addEventListener('click', () => {
   toggleFav(lbKey);
   updateLBFav();
-  // Update the gallery card too
   renderGallery();
 });
 
@@ -239,7 +360,7 @@ function handleFiles(files) {
       uploads.push(e.target.result);
       pending--;
       if (pending === 0) {
-        try { localStorage.setItem('ka_uploads', JSON.stringify(uploads)); }
+        try { saveUserData('uploads', uploads); }
         catch (err) { alert('Storage full! Try smaller images.'); return; }
         renderGallery();
       }
@@ -323,4 +444,16 @@ const obs = new IntersectionObserver(entries => {
 document.querySelectorAll('.feat,.sec-title,.sec-badge').forEach(el => obs.observe(el));
 
 // ===== INIT =====
-renderGallery();
+// Check if user is already logged in (via sessionStorage) or show auth modal
+if (activeUser && getAccounts().includes(activeUser)) {
+  // Restore session
+  favs = loadUserData('favs', []);
+  uploads = loadUserData('uploads', []);
+  updateAccountBadge();
+  renderGallery();
+} else {
+  // Not logged in — clear stale session and show modal
+  sessionStorage.removeItem('ka_user');
+  activeUser = null;
+  showAuthModal();
+}
