@@ -23,12 +23,12 @@ function saveUserData(suffix, data) {
   localStorage.setItem(userKey(suffix), JSON.stringify(data));
 }
 
-// Registered accounts list (array of usernames — no passwords, purely username-based)
+// Registered accounts list (object mapping username to password — stored in localStorage)
 function getAccounts() {
-  try { return JSON.parse(localStorage.getItem('ka_accounts') || '[]'); }
-  catch { return []; }
+  try { return JSON.parse(localStorage.getItem('ka_accounts') || '{}'); }
+  catch { return {}; }
 }
-function saveAccounts(list) { localStorage.setItem('ka_accounts', JSON.stringify(list)); }
+function saveAccounts(accounts) { localStorage.setItem('ka_accounts', JSON.stringify(accounts)); }
 
 // ===== STATE =====
 let favs = [];
@@ -79,6 +79,9 @@ function switchAuthTab(tab) {
   $('tab-signup').classList.toggle('active', tab === 'signup');
   $('login-error').textContent = '';
   $('signup-error').textContent = '';
+  // Clear fields
+  $('login-user').value = ''; $('login-pass').value = '';
+  $('signup-user').value = ''; $('signup-pass').value = '';
   // Focus the relevant input
   setTimeout(() => $(tab === 'login' ? 'login-user' : 'signup-user').focus(), 50);
 }
@@ -96,26 +99,34 @@ function hideAuthModal() {
 // LOGIN
 $('login-btn').addEventListener('click', () => {
   const username = $('login-user').value.trim().toLowerCase();
+  const password = $('login-pass').value;
   const errEl = $('login-error');
   errEl.textContent = '';
 
-  if (!USERNAME_RE.test(username)) {
-    errEl.textContent = 'Invalid username format.';
+  if (!username || !password) {
+    errEl.textContent = 'Please enter both username and password.';
     return;
   }
+
   const accounts = getAccounts();
-  if (!accounts.includes(username)) {
-    errEl.textContent = 'Account not found. Did you mean to sign up?';
+  if (!accounts[username]) {
+    errEl.textContent = 'Account not found.';
+    return;
+  }
+  if (accounts[username] !== password) {
+    errEl.textContent = 'Incorrect password.';
     return;
   }
   loginAs(username);
 });
 
-$('login-user').addEventListener('keydown', e => { if (e.key === 'Enter') $('login-btn').click(); });
+$('login-user').addEventListener('keydown', e => { if (e.key === 'Enter') $('login-pass').focus(); });
+$('login-pass').addEventListener('keydown', e => { if (e.key === 'Enter') $('login-btn').click(); });
 
 // SIGNUP
 $('signup-btn').addEventListener('click', () => {
   const username = $('signup-user').value.trim().toLowerCase();
+  const password = $('signup-pass').value;
   const errEl = $('signup-error');
   errEl.textContent = '';
 
@@ -123,18 +134,24 @@ $('signup-btn').addEventListener('click', () => {
     errEl.textContent = 'Username must be 3–30 characters (letters, numbers, underscores).';
     return;
   }
+  if (password.length < 4) {
+    errEl.textContent = 'Password must be at least 4 characters.';
+    return;
+  }
+
   const accounts = getAccounts();
-  if (accounts.includes(username)) {
-    errEl.textContent = 'That username is taken. Try signing in instead.';
+  if (accounts[username]) {
+    errEl.textContent = 'That username is taken.';
     return;
   }
   // Register and log in
-  accounts.push(username);
+  accounts[username] = password;
   saveAccounts(accounts);
   loginAs(username);
 });
 
-$('signup-user').addEventListener('keydown', e => { if (e.key === 'Enter') $('signup-btn').click(); });
+$('signup-user').addEventListener('keydown', e => { if (e.key === 'Enter') $('signup-pass').focus(); });
+$('signup-pass').addEventListener('keydown', e => { if (e.key === 'Enter') $('signup-btn').click(); });
 
 function loginAs(username) {
   activeUser = username;

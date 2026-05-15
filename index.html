@@ -22,9 +22,11 @@
     </div>
     <!-- LOGIN -->
     <div class="auth-form" id="form-login">
-      <p class="auth-sub">Welcome back! Enter your username to continue.</p>
+      <p class="auth-sub">Welcome back! Enter your credentials to continue.</p>
       <label class="auth-label">Username</label>
       <input class="auth-input" id="login-user" type="text" placeholder="your_username" autocomplete="username" maxlength="30"/>
+      <label class="auth-label">Password</label>
+      <input class="auth-input" id="login-pass" type="password" placeholder="••••••••" autocomplete="current-password"/>
       <div class="auth-error" id="login-error"></div>
       <button class="auth-btn" id="login-btn">Sign In →</button>
       <p class="auth-hint">Don't have an account? <a href="#" onclick="switchAuthTab('signup');return false">Create one</a></p>
@@ -34,6 +36,8 @@
       <p class="auth-sub">Create your free account and start building your collection.</p>
       <label class="auth-label">Choose a Username</label>
       <input class="auth-input" id="signup-user" type="text" placeholder="your_username" autocomplete="username" maxlength="30"/>
+      <label class="auth-label">Choose a Password</label>
+      <input class="auth-input" id="signup-pass" type="password" placeholder="••••••••" autocomplete="new-password"/>
       <p class="auth-rules">3–30 characters. Letters, numbers, underscores only.</p>
       <div class="auth-error" id="signup-error"></div>
       <button class="auth-btn" id="signup-btn">Create Account →</button>
